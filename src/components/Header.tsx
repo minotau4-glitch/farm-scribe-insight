@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Bell, Settings, User, Globe } from "lucide-react";
+import { Bell, Settings, User, Globe, LogIn } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   onLanguageToggle: () => void;
@@ -42,9 +43,12 @@ export const Header = ({ onLanguageToggle, isVietnamese }: HeaderProps) => {
               <Settings className="w-4 h-4" />
             </Button>
             
-            <Button variant="ghost" size="sm">
-              <User className="w-4 h-4" />
-            </Button>
+            <Link to="/login">
+              <Button variant="outline" size="sm" className="flex items-center space-x-2">
+                <LogIn className="w-4 h-4" />
+                <span>{isVietnamese ? "Đăng nhập" : "Login"}</span>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
